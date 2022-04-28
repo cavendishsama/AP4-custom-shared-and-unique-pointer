@@ -34,3 +34,9 @@ void UniquePtr<T>::reset(){
     delete _p;
     _p = nullptr;
 }
+
+template <typename T>
+void UniquePtr<T>::reset(T* input){
+    delete _p;
+    _p = input;
+}

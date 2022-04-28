@@ -11,6 +11,7 @@ class UniquePtr {
         //UniquePtr(const UniquePtr& Ptr) = delete;             in cpp11
         T* get();
         void reset();
+        void reset(T* input);
         
         T& operator*();
         UniquePtr<T>& operator=(const UniquePtr& Ptr) = delete;
