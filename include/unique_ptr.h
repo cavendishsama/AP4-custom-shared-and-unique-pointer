@@ -13,12 +13,12 @@ class UniquePtr {
         
         
         T& operator*();
-        // UniquePtr<T>& operator=(const UniquePtr& Ptr) = delete;
+        UniquePtr<T>& operator=(const UniquePtr& Ptr) = delete;
         T* operator->();
     private:
         T* _p;
         UniquePtr(const UniquePtr& Ptr);
-        UniquePtr<T>& operator=(const UniquePtr& Ptr);
+        // UniquePtr<T>& operator=(const UniquePtr& Ptr);
 };
 
 template <typename T>
