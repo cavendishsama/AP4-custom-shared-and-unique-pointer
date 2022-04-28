@@ -8,18 +8,20 @@ class UniquePtr {
         UniquePtr();
         UniquePtr(T* input);
         ~UniquePtr();
-        //UniquePtr(const UniquePtr& Ptr) = delete;             in cpp11
+        // UniquePtr(const UniquePtr& Ptr) = delete;             //in cpp11
         T* get();
         void reset();
         void reset(T* input);
+        T* release();
         
         T& operator*();
-        UniquePtr<T>& operator=(const UniquePtr& Ptr) = delete;
+        // UniquePtr<T>& operator=(const UniquePtr& Ptr) = delete;
         T* operator->();
+        operator bool();
     private:
         T* _p;
         UniquePtr(const UniquePtr& Ptr);
-        // UniquePtr<T>& operator=(const UniquePtr& Ptr);
+        UniquePtr<T>& operator=(const UniquePtr& Ptr);
 };
 
 template <typename T>

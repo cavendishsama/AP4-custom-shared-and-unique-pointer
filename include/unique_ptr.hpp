@@ -40,3 +40,17 @@ void UniquePtr<T>::reset(T* input){
     delete _p;
     _p = input;
 }
+template <typename T>
+T* UniquePtr<T>::release(){
+    T* temp { _p };
+    _p = nullptr;
+    return temp;
+}
+
+template <typename T>
+UniquePtr<T>::operator bool(){
+    if (_p == nullptr)
+        return false;
+    else
+        return true;
+}
