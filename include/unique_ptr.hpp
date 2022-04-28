@@ -28,3 +28,9 @@ template <typename T>
 T* UniquePtr<T>::operator->(){
     return _p;
 }
+
+template <typename T>
+void UniquePtr<T>::reset(){
+    delete _p;
+    _p = nullptr;
+}

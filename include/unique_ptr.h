@@ -10,7 +10,7 @@ class UniquePtr {
         ~UniquePtr();
         //UniquePtr(const UniquePtr& Ptr) = delete;             in cpp11
         T* get();
-        
+        void reset();
         
         T& operator*();
         UniquePtr<T>& operator=(const UniquePtr& Ptr) = delete;
