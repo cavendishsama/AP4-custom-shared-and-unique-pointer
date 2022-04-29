@@ -10,8 +10,12 @@ class SharedPtr {
         SharedPtr(const SharedPtr& pointer);
         ~SharedPtr();
 
-        SharedPtr<T>& operator =(const SharedPtr& pointer);
+        int use_count();
+        T* get();
 
+        SharedPtr<T>& operator =(const SharedPtr& pointer);
+        T& operator*();
+        T* operator->();    
     private:
         T* _p;
         int* counter;

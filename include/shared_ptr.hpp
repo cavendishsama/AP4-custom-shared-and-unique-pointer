@@ -1,20 +1,21 @@
 template <typename T>
 SharedPtr<T>::SharedPtr(T* input){
     _p = input;
-    // counter = new int { 1 };
+    counter = new int { 1 };
 }
 
 template <typename T>
 SharedPtr<T>::SharedPtr(){
     _p = nullptr;
-    // counter = new int { 1 };
+    counter = new int { 1 };
 }
 
 template <typename T>
-SharedPtr<T>::SharedPtr(const SharedPtr& pointer): _p { pointer._p }{
-    // std::cout << "copy constructor______" << std::endl;
-    // _p = pointer._p;
-    // counter = new int { 1 };
+SharedPtr<T>::SharedPtr(const SharedPtr& pointer){
+    std::cout << "copy constructor______" << std::endl;
+    counter = pointer.counter;              
+    _p = pointer._p;
+    (*counter)++;
 }
 
 template <typename T>
@@ -22,11 +23,34 @@ SharedPtr<T>::~SharedPtr(){
     _p = nullptr;
     delete _p;
     _p = nullptr;
-    // --(*counter);
+    --(*counter);
+    if(*counter == 0){
+        delete counter;
+        counter = new int {};
+    }
 }
 
 template <typename T>
 SharedPtr<T>& SharedPtr<T>::operator=(const SharedPtr& pointer){
     _p = pointer._p;
     return *this;
+}
+template <typename T>
+int SharedPtr<T>::use_count(){
+    return *counter;
+}
+
+template <typename T>
+T* SharedPtr<T>::get(){
+    return _p;
+}
+
+template <typename T>
+T& SharedPtr<T>::operator*(){
+    return *_p;
+}
+
+template <typename T>
+T* SharedPtr<T>::operator->(){
+    return _p;
 }
