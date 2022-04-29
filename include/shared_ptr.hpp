@@ -54,3 +54,25 @@ template <typename T>
 T* SharedPtr<T>::operator->(){
     return _p;
 }
+
+template <typename T>
+void SharedPtr<T>::reset(){
+    delete _p;
+    delete counter;
+    _p = nullptr;
+    counter = new int{};
+}
+
+template <typename T>
+void SharedPtr<T>::reset(T* input){
+    delete _p;
+    _p = input;
+}
+
+template <typename T>
+SharedPtr<T>::operator bool(){
+    if (_p == nullptr)
+        return false;
+    else
+        return true;
+}

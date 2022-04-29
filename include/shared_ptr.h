@@ -12,6 +12,9 @@ class SharedPtr {
 
         int use_count();
         T* get();
+        void reset();
+        void reset(T* input);
+        explicit operator bool();
 
         SharedPtr<T>& operator =(const SharedPtr& pointer);
         T& operator*();
