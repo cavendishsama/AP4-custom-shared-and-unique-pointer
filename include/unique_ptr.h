@@ -17,7 +17,7 @@ class UniquePtr {
         T& operator*();
         // UniquePtr<T>& operator=(const UniquePtr& Ptr) = delete;
         T* operator->();
-        operator bool();
+        explicit operator bool();
     private:
         T* _p;
         UniquePtr(const UniquePtr& Ptr);

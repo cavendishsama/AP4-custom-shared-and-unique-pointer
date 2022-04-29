@@ -7,7 +7,7 @@
 #include "unique_ptr.h"
 #include "shared_ptr.h"
 
-
+/*
 TEST(HW4Test, TEST1) {
     UniquePtr<int> ptr1{new int{10}};
     EXPECT_EQ(*ptr1.get(), 10);
@@ -50,21 +50,21 @@ TEST(HW4Test, TEST5) {
     UniquePtr<std::vector<int>> ptr3{new std::vector<int>{1, 2, 3, 4, 5}};
     EXPECT_FALSE(ptr3->empty());
 }
-/*
+
 TEST(HW4Test, TEST6) {
     UniquePtr<std::string> ptr{new std::string{"hello world!"}};
     EXPECT_EQ(ptr->length(), 12);
     ptr.reset();
     EXPECT_EQ(ptr.get(), nullptr);
 }
-/*
+
 TEST(HW4Test, TEST7) {
     UniquePtr<std::string> ptr{new std::string{"hello world!"}};
     EXPECT_EQ(ptr->length(), 12);
     ptr.reset(new std::string{"nice job!"});
     EXPECT_EQ(*ptr, "nice job!");
 }
-/*
+
 TEST(HW4Test, TEST8) {
     UniquePtr<double> ptr{new double{1.567}};
     EXPECT_DOUBLE_EQ(*ptr, 1.567);
@@ -72,7 +72,7 @@ TEST(HW4Test, TEST8) {
         ptr.reset();
     EXPECT_FALSE(ptr);
 }
-/*
+
 TEST(HW4Test, TEST9) {
     UniquePtr<double> ptr{new double{1.567}};
     EXPECT_DOUBLE_EQ(*ptr, 1.567);
@@ -83,7 +83,7 @@ TEST(HW4Test, TEST9) {
     EXPECT_FALSE(ptr);
     delete tmp;
 }
-/*
+
 TEST(HW4Test, TEST10) {
     SharedPtr<int> ptr1{new int{10}};
     EXPECT_EQ(*ptr1.get(), 10);
@@ -91,7 +91,7 @@ TEST(HW4Test, TEST10) {
     SharedPtr<std::string> ptr2{new std::string{"hello world!"}};
     EXPECT_EQ(*ptr2.get(), "hello world!");
 }
-/*
+
 TEST(HW4Test, TEST11) {
     SharedPtr<int> ptr1{make_shared<int>(10)};
     EXPECT_EQ(*ptr1.get(), 10);
@@ -203,8 +203,8 @@ TEST(HW4Test, TEST21) {
     EXPECT_EQ(ptr1.use_count(), 2);
     EXPECT_EQ(ptr2.use_count(), 2);
 }
-*/
 
+*/
 
 
 
