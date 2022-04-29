@@ -10,9 +10,11 @@ class SharedPtr {
         SharedPtr(const SharedPtr& pointer);
         ~SharedPtr();
 
+        SharedPtr<T>& operator =(const SharedPtr& pointer);
 
     private:
         T* _p;
+        int* counter;
 };
 
 template <typename T>
