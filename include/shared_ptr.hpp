@@ -12,7 +12,6 @@ SharedPtr<T>::SharedPtr(){
 
 template <typename T>
 SharedPtr<T>::SharedPtr(const SharedPtr& pointer){
-    std::cout << "copy constructor______" << std::endl;
     counter = pointer.counter;              
     _p = pointer._p;
     (*counter)++;
@@ -32,7 +31,12 @@ SharedPtr<T>::~SharedPtr(){
 
 template <typename T>
 SharedPtr<T>& SharedPtr<T>::operator=(const SharedPtr& pointer){
+    if(this == &pointer)
+        return *this;
+
     _p = pointer._p;
+    counter = pointer.counter;
+    ++(*counter);
     return *this;
 }
 template <typename T>
